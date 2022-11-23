@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="index.css" rel="stylesheet">
+        <script src="./script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1><span>$ </span>C-Interest<span> $</span></h1>
+        </header>
+        <main class="form flex flex-column">
+            <h2>Simulador</h2>
+            <form method="POST" action="#">
+                <div class="flex flex-column">
+                    <label>Nome:
+                        <input id="name" type="text" name="name" placeholder="Digite seu nome..." required>
+                    </label>
+                    
+                    <label>Mensalidade: 
+                        <input id="value" type="text" name="value" placeholder="Insira o aporte mensal..." required>
+                    </label>
+
+                    <label>Juros: 
+                        <input id="interest" type="text" name="interest" placeholder="Insira o juros mensal..." required>
+                    </label>
+                    
+                    <label>Período: 
+                        <select id="months">
+                            <option value="0" selected disabled>Selecione o período</option>
+                            <option value="12">1 Ano</option>
+                            <option value="24">2 Anos</option>
+                        </select>
+                    </label>
+                </div>
+            </form>
+            <button id="simulate">Simular</button>
+        </main>
+        <main class="result flex flex-column hidden">
+
+        </main>
+    </body>
+</html>
