@@ -28,10 +28,33 @@ body {
 
 }
 
+.section-separator::before {
+    content: "";
+    display: inline-flex;
+    flex-wrap: nowrap;
+    top: 1.75rem;
+    margin-right: .5rem;
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background: black;
+}
+
+.section-separator::after {
+    content: "";
+    display: inline-flex;
+    flex-wrap: nowrap;
+    top: 1.75rem;
+    margin-left: .5rem;
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background: black;
+}
+
 header {
     margin: 0;
     justify-content: space-around;
-    margin-block-end: 1rem;
 }
 
 header h1 {
@@ -48,7 +71,8 @@ main {
     margin-inline: auto;
 }
 
-main h2 {
+main div h2 {
+    margin-block: 0;
     font-size: 2.5rem;
     font-weight: bold;
 }
@@ -62,6 +86,11 @@ form div > label {
     display: inline-block;
     width: 100%;
     text-align: left;
+    align-content: center;
+}
+
+form div > label img {
+    width: 1rem;
 }
 
 form div > label input,

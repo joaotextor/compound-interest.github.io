@@ -13,22 +13,32 @@
                 <img src="./assets/piggy-bank.svg" alt="title"><h1>C-Interest</h1><img src="./assets/piggy-bank.svg" alt="title">
             </header>
             <main class="form flex flex-column">
-                <h2>Simulador</h2>
+                <div class="section-separator flex">
+                    <h2>Simulador</h2>
+                </div>
                 <form method="POST" action="#">
                     <div class="flex flex-column">
-                        <label>Nome:
+                        <label>
+                            <img src="./assets/user-name.svg" alt="user name">
+                            Nome:
                             <input class="ff-pt-sans" id="name" type="text" name="name" placeholder="Digite seu nome..." required>
                         </label>
                         
-                        <label>Mensalidade: 
+                        <label>
+                            <img src="./assets/monthly-investment.svg" alt="user name">
+                            Mensalidade: 
                             <input class="ff-pt-sans" id="value" type="text" name="value" placeholder="Insira o aporte mensal..." required>
                         </label>
 
-                        <label>Juros: 
+                        <label>
+                            <img src="./assets/interest-rate.svg" alt="user name">
+                            Juros: 
                             <input class="ff-pt-sans" id="interest" type="text" name="interest" placeholder="Insira o juros mensal..." required>
                         </label>
                         
-                        <label>Período: 
+                        <label>
+                            <img src="./assets/investment-time.svg" alt="user name">
+                            Período: 
                             <select class="ff-pt-sans" id="months">
                                 <option value="0" selected disabled>Selecione o período</option>
                                 <option value="12">1 Ano</option>

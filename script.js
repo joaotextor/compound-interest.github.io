@@ -27,7 +27,7 @@ const assembleHtml = (data) => {
     mainForm.classList.add(`hidden`)
     mainResult.classList.remove(`hidden`)
     mainResult.innerHTML = `
-    <p>Olá, ${name.value}. Juntando ${formatter.format(value.value.replace(",", "."))} todos os meses, você terá <b>${formatter.format(totalValue)}</b> em ${(timePeriod.value / 12)} ano${(timePeriod.value / 12) > 1 ? `s` : ``}.</p>
+    <p>Olá, ${name.value}!  Juntando ${formatter.format(value.value.replace(",", "."))} todos os meses, você terá <b>${formatter.format(totalValue)}</b> em ${(timePeriod.value / 12)} ano${(timePeriod.value / 12) > 1 ? `s` : ``}.</p>
     <button id="btn-new-simulation"><div>Simular novamente</div></button>
     `
     const btnNewSimulation = document.getElementById(`btn-new-simulation`)
@@ -68,7 +68,7 @@ const showResult = async (url = '') => {
         value.setAttribute('placeholder', 'Insira um aporte mensal...')
     }
 
-    if (isNaN(interest.value.replace(",", ".")) || !interest.value) {
+    if (isNaN(interest.value.replace(",", ".").replace("%", "")) || !interest.value) {
         interest.classList.add('error')
         interest.setAttribute('placeholder', `${!interest.value ? 'Juros deve ser numérico' : '"'+interest.value+'" não é numérico'}`)
         error = 1
@@ -87,7 +87,7 @@ const showResult = async (url = '') => {
         headers: {
             'content-type': 'application/json'
         },
-        body: `{ "expr": "${value.value.replace(`,`, `.`)} * (((1+ ${(interest.value.replace("%", "").replace(",", ".") / 100)}) ^ ${timePeriod.value} - 1) / ${(interest.value.replace("%", "").replace(",", ".") / 100)})", "precision": 4 }`
+        body: `{ "expr": "${value.value.replace(`,`, `.`)} * (((1+ ${(interest.value.replace("%", "").replace(",", ".") / 100)}) ^ ${timePeriod.value} - 1) / ${(interest.value.replace("%", "").replace(",", ".") / 100)})", "precision": 14 }`
         
     })
     .then((res) => res.json())
