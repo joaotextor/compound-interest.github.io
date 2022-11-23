@@ -9,6 +9,11 @@ const mainResult = document.querySelector('.result')
 
 buttonSimulate.onclick = () => showResult('http://api.mathjs.org/v4/')
 
+const formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+})
+
 const replaceDotForComma = (number) => {
     if (number % 2 == 0) {
         return (number / 2).toString()+`,00`
@@ -18,12 +23,12 @@ const replaceDotForComma = (number) => {
 }
 
 const assembleHtml = (data) => {
-    const totalValue = replaceDotForComma(data.result)
+    const totalValue = data.result
     mainForm.classList.add(`hidden`)
     mainResult.classList.remove(`hidden`)
     mainResult.innerHTML = `
-    <p>Olá, ${name.value}. Juntando R$ ${value.value} todos os meses, você terá <b>R$ ${totalValue}</b> em ${(timePeriod.value / 12)} ano${(timePeriod.value / 12) > 1 ? `s` : ``}.</p>
-    <button id="btn-new-simulation">Simular novamente</button>
+    <p>Olá, ${name.value}. Juntando ${formatter.format(value.value.replace(",", "."))} todos os meses, você terá <b>${formatter.format(totalValue)}</b> em ${(timePeriod.value / 12)} ano${(timePeriod.value / 12) > 1 ? `s` : ``}.</p>
+    <button id="btn-new-simulation"><div>Simular novamente</div></button>
     `
     const btnNewSimulation = document.getElementById(`btn-new-simulation`)
     btnNewSimulation.onclick = newSimulation
@@ -38,8 +43,45 @@ const newSimulation = () => {
     mainForm.classList.remove("hidden")
 }
 
-
 const showResult = async (url = '') => {
+    let error = 0
+    name.classList.remove('error')
+    value.classList.remove('error')
+    interest.classList.remove('error')
+    timePeriod.classList.remove('error')
+
+    if (!name.value) {
+        error = 1
+        name.classList.add('error')
+    }
+
+    if (timePeriod.value == 0) {
+        error = 1
+        timePeriod.classList.add('error')
+    }
+
+    if (isNaN(value.value.replace(",", ".")) || !value.value) {
+        value.classList.add('error')
+        value.setAttribute('placeholder', `${!value.value ? 'Mensalidade deve ser numérico' : '"'+value.value+'" não é numérico' }`)
+        error = 1
+    } else {
+        value.setAttribute('placeholder', 'Insira um aporte mensal...')
+    }
+
+    if (isNaN(interest.value.replace(",", ".")) || !interest.value) {
+        interest.classList.add('error')
+        interest.setAttribute('placeholder', `${!interest.value ? 'Juros deve ser numérico' : '"'+interest.value+'" não é numérico'}`)
+        error = 1
+    } else {
+        value.setAttribute('placeholder', 'Insira o juros mensal...')
+    }
+
+    if (error != 0) {
+        interest.value = ''
+        value.value = ''
+        alert('Corrija os campos em vermelho.')
+        return
+    }
     await fetch(url, {
         method: 'POST',
         headers: {

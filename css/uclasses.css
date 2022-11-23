@@ -9,3 +9,17 @@
 .hidden {
     display: none;
 }
+
+.ff-pt-sans {
+    font-family: 'PT Sans', sans-serif;
+}
+
+.error {
+    border-color: red;
+    color: red;
+
+}
+
+.error::placeholder {
+    color: red;
+}

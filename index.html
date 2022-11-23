@@ -7,7 +7,7 @@
         <link href="./css/index.css" rel="stylesheet">
         <script src="./script.js" defer></script>
     </head>
-    <body class="flex">
+    <body class="flex ff-pt-sans">
         <div class="container">
             <header class="flex">
                 <img src="./assets/piggy-bank.svg" alt="title"><h1>C-Interest</h1><img src="./assets/piggy-bank.svg" alt="title">
@@ -17,19 +17,19 @@
                 <form method="POST" action="#">
                     <div class="flex flex-column">
                         <label>Nome:
-                            <input id="name" type="text" name="name" placeholder="Digite seu nome..." required>
+                            <input class="ff-pt-sans" id="name" type="text" name="name" placeholder="Digite seu nome..." required>
                         </label>
                         
                         <label>Mensalidade: 
-                            <input id="value" type="text" name="value" placeholder="Insira o aporte mensal..." required>
+                            <input class="ff-pt-sans" id="value" type="text" name="value" placeholder="Insira o aporte mensal..." required>
                         </label>
 
                         <label>Juros: 
-                            <input id="interest" type="text" name="interest" placeholder="Insira o juros mensal..." required>
+                            <input class="ff-pt-sans" id="interest" type="text" name="interest" placeholder="Insira o juros mensal..." required>
                         </label>
                         
                         <label>Período: 
-                            <select id="months">
+                            <select class="ff-pt-sans" id="months">
                                 <option value="0" selected disabled>Selecione o período</option>
                                 <option value="12">1 Ano</option>
                                 <option value="24">2 Anos</option>
@@ -37,7 +37,7 @@
                         </label>
                     </div>
                 </form>
-                <button id="simulate">Simular</button>
+                <button class="ff-pt-sans" id="simulate"><div>Simular</div></button>
             </main>
             <main class="result flex flex-column hidden">
 
