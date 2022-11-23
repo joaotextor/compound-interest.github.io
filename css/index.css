@@ -1,0 +1,88 @@
+@import "uclasses.css";
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../assets/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 10% 30%;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.container {
+    width: 350px;
+    border: 0;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow:
+        2.2px 2.3px 2.7px rgba(0, 0, 0, 0.109),
+        5.6px 5.9px 6.9px rgba(0, 0, 0, 0.14),
+        11.3px 12.1px 14.2px rgba(0, 0, 0, 0.16),
+        23.4px 24.8px 29.2px rgba(0, 0, 0, 0.176),
+        64px 68px 80px rgba(0, 0, 0, 0.19);
+
+}
+
+header {
+    margin: 0;
+    justify-content: space-around;
+    margin-block-end: 1rem;
+}
+
+header h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header > img {
+    width: 2.5rem;
+    margin: .5rem
+}
+
+main {
+    margin-inline: auto;
+}
+
+main > * {
+    margin: 1rem;
+}
+
+form div > label {
+    margin-bottom: .5rem;
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+
+form div > label input,
+form div > label select {
+    width: 60%;
+    float: right;
+}
+
+form div > label select {
+    width: 62.5%;
+}
+
+main.result p {
+    text-align: center;
+}
+
+main button {
+    width: 60%;
+    margin-inline: auto;
+    font-size: 30px;
+    background-color: limegreen;
+    border: 4px solid lime;
+    
+}
+
+.result > button {
+    margin-inline: auto;
+}
