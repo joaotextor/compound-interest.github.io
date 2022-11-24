@@ -121,7 +121,8 @@ main button {
     border-image-slice: 1;
     background-color: #68d7ff;
     transform: skewX(-20deg);
-    color: white; 
+    color: white;
+    cursor: pointer;
 }
 
 main > button div {
