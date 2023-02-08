@@ -7,7 +7,7 @@ const mainForm = document.querySelector('.form')
 const mainResult = document.querySelector('.result')
 
 
-buttonSimulate.onclick = () => showResult('http://api.mathjs.org/v4/')
+buttonSimulate.onclick = () => showResult('https://api.mathjs.org/v4/')
 
 const formatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
